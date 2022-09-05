@@ -28,7 +28,7 @@ const UPGS = {
 
         ctn: [
             {
-                max: 1000,
+                max: 100000,
 
                 title: "Grass Value",
                 desc: `Increase Grass gain by <b class="green">1</b> per level.<br>This effect is <b class="green">doubled</b> every <b class="yellow">25</b> levels.`,
@@ -40,13 +40,13 @@ const UPGS = {
                 bulk: i => i.div(10).max(1).log(1.2).floor().toNumber()+1,
 
                 effect(i) {
-                    let x = Decimal.pow(2,Math.floor(i/25)).mul(i+1)
+                    let x = Decimal.pow(2,Math.floor(i/25)).mul(i+1000000000000000000000000000000000000000000000000000000000)
 
                     return x
                 },
                 effDesc: x => x.format()+"x",
             },{
-                max: 1000,
+                max: 10000,
 
                 title: "More Grass",
                 desc: `Increase grass cap by <b class="green">1</b> per level.`,
@@ -64,7 +64,7 @@ const UPGS = {
                 },
                 effDesc: x => "+"+format(x,0),
             },{
-                max: 250,
+                max: 25000,
 
                 title: "Grow Speed",
                 desc: `Increase grass grow speed by <b class="green">10%</b> per level.`,
@@ -82,7 +82,7 @@ const UPGS = {
                 },
                 effDesc: x => format(x)+"x",
             },{
-                max: 1000,
+                max: 100000,
 
                 title: "XP",
                 desc: `Increase experience (XP) gained by <b class="green">1</b> per level.<br>This effect is <b class="green">doubled</b> every <b class="yellow">25</b> levels.`,
@@ -100,16 +100,16 @@ const UPGS = {
                 },
                 effDesc: x => x.format()+"x",
             },{
-                max: 5,
+                max: 1,
 
-                title: "Range",
-                desc: `Increase grass cut range by <b class="green">10</b> per level. Base is 50.`,
+                title: "Omega Range",
+                desc: `Increase grass cut range by <b class="green">250</b> per level. Base is 50.`,
 
-                res: "grass",
+                res: "pp",
                 icon: ['Icons/Range'],
                 
-                cost: i => Decimal.pow(2,i).mul(1e4).ceil(),
-                bulk: i => i.div(1e4).max(1).log(2).floor().toNumber()+1,
+                cost: i => Decimal.pow(2,i).mul(1e9).ceil(),
+                bulk: i => i.div(1e4).max(1).log(2).floor().toNumber()+25,
 
                 effect(i) {
                     let x = i*10
